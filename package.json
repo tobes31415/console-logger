@@ -1,6 +1,6 @@
 {
   "name": "@tobes31415/console-logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Formats console logs while preserving stack trace info",
   "main": "lib/log-commonjs.min.js",
   "module": "lib/index.js",
@@ -37,11 +37,9 @@
     "post-clean:flow": "del-cli flow"
   },
   "keywords": [
-    "dispose",
+    "console",
     "log",
-    "garbage",
-    "garbage collector",
-    "memory"
+    "format"
   ],
   "repository": {
     "type": "git",
