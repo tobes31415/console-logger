@@ -39,8 +39,6 @@ A Javascript console log formatter that logs the correct line number. Also suppo
        }
     });
 
-    [View API Docs for full list of configurable properties](docs/modules.md)
-
 # Advanced Useage - Customizing individual loggers
 
     import { createLogFor } from "@tobes31415-console-logger";

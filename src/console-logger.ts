@@ -1,5 +1,5 @@
 import { Observable, Subject } from "@tobes31415/basic-observables";
-import { deepAssign } from "./util";
+import { deepAssign, isNullorUndefined, nullishCoalesce } from "./util";
 
 const APP_START_TIME = Date.now();
 
@@ -64,17 +64,17 @@ export interface Logger {
 export interface LoggerConfig {
     defaultLogLevel: LogLevel;
     logThreshold: LogLevel;
-    include: LogEventFormatSections[];
+    include: (LogEventFormatSections | string)[];
     style?: Partial<Record<LogEventFormatSections, string>>;
     format?: Partial<Record<LogEventFormatSections, string | ((value: any) => string)>>;
     delimiter: string;
 }
 
 const DEFUALT_STYLE = {
-    namespace: "color: green",
-    uptime: "color: purple",
-    time: "color: yellow",
-    message: "color: blue"
+    namespace: "color: dimgray",
+    level: "color: dimgray",
+    uptime: "color: darkgray",
+    time: "color: lightgray"
 };
 const DEFAULT_FORMAT = {
     namespace: "[${namespace}]",
@@ -86,12 +86,12 @@ const DEFAULT_FORMAT = {
 const DEFAULT_CONFIG: LoggerConfig = {
     defaultLogLevel: LogLevel.debug,
     logThreshold: LogLevel.debug,
-    include: ["namespace", "level", "uptime", "time", "message"],
+    include: ["namespace", "uptime", "-", "message"],
     style: Object.assign({}, DEFUALT_STYLE),
     format: Object.assign({}, DEFAULT_FORMAT),
     delimiter: " "
 }
-const currentGlobalConfig = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+const currentGlobalConfig = deepAssign({}, DEFAULT_CONFIG);
 
 const broadcastEvent = new Subject<LogEvent>();
 export const onLogEvent: Observable<LogEvent> = broadcastEvent;
@@ -100,7 +100,7 @@ export function customizeDefaultLogConfig(newConfig: Partial<LoggerConfig>) {
     deepAssign(currentGlobalConfig, DEFAULT_CONFIG, currentGlobalConfig, newConfig);
 }
 
-export function createLogFor(namespace: string, config?: Partial<LoggerConfig>): Logger {
+export function createLoggerFor(namespace: string, config?: Partial<LoggerConfig>): Logger {
     let currentConfig = config;
     const getConfig = () => deepAssign<LoggerConfig>({}, currentGlobalConfig, currentConfig);
     const result: Logger = (handleLog.bind(this, getConfig, namespace, undefined)) as any as Logger;
@@ -137,27 +137,44 @@ function handleLog(configFn: () => LoggerConfig, namespace: string, level: LogLe
 function formatLog(config: LoggerConfig, event: LogEvent): any[] {
     const result: string[] = [];
     const styles: string[] = [];
+    let isStyleApplied = false;
     config.include.forEach(section => {
-        const interim: string[] = [];
-        if (config.style && config.style[section]) {
-            interim.push("%c");
-            styles.push(config.style[section]!);
-        }
-        const formatter = config.format ? config.format[section] : undefined;
         const value = event[section];
-        if (!formatter) {
-            interim.push("" + value);
+        const interim: string[] = [];
+        const clearStyle = () => {
+            if (isStyleApplied) {
+                interim.push("%c");
+                styles.push("");
+                isStyleApplied = false;
+            }
         }
-        else if (typeof formatter === "string") {
-            interim.push(formatter.replace("${" + section + "}", "" + value));
-        }
-        else if (typeof formatter === "function") {
-            interim.push(formatter(value));
+
+        if (isNullorUndefined(value)) {
+            clearStyle();
+            interim.push(section); // a literal
         } else {
-            console.error(formatter, config);
-            throw new Error("Log Formatter invalid, must be string or function");
+            if (config.style && config.style[section]) {
+                interim.push("%c");
+                styles.push(config.style[section]!);
+                isStyleApplied = true;
+            } else {
+                clearStyle();
+            }
+            const formatter = config.format ? config.format[section] : undefined;
+            if (!formatter) {
+                interim.push("" + value);
+            }
+            else if (typeof formatter === "string") {
+                interim.push(formatter.replace("${" + section + "}", "" + value));
+            }
+            else if (typeof formatter === "function") {
+                interim.push(formatter(value));
+            } else {
+                console.error(formatter, config);
+                throw new Error("Log Formatter invalid, must be string or function");
+            }
         }
         result.push(interim.join(""));
     });
-    return [result.join(config.delimiter ?? " "), ...styles, ...event.extras];
+    return [result.join(nullishCoalesce(config.delimiter, " ")), ...styles, ...event.extras];
 }

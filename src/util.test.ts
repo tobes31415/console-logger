@@ -1,4 +1,4 @@
-import { deepAssign } from './util';
+import { deepAssign, isNullorUndefined } from './util';
 
 describe("deepAssign", () => {
     test("equivalent for a shallow assign", () => {
@@ -47,4 +47,15 @@ describe("deepAssign", () => {
         const C = deepAssign({}, A, B);
         expect(C).toEqual({ abc: [1, 2] });
     })
+});
+describe("isNullOrUndefined", () => {
+    test("true for null or undefined", () => {
+        expect(isNullorUndefined(null)).toBe(true);
+        expect(isNullorUndefined(undefined)).toBe(true);
+    });
+    test("false for other falsy values", () => {
+        expect(isNullorUndefined(false)).toBe(false);
+        expect(isNullorUndefined("")).toBe(false);
+        expect(isNullorUndefined(0)).toBe(false);
+    });
 });

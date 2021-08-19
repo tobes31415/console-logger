@@ -14,3 +14,11 @@ export function deepAssign<T = any>(target: any, ...others: any[]): T {
     });
     return target;
 }
+
+export function isNullorUndefined(value: any): boolean {
+    return value === null || value === undefined;
+}
+
+export function nullishCoalesce<T>(value: T | null | undefined, replacement: T): T {
+    return isNullorUndefined(value) ? replacement : value!;
+}

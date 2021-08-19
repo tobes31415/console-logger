@@ -17,7 +17,6 @@
 ### Type aliases
 
 - [LogEventFormatSections](modules.md#logeventformatsections)
-- [LogEventProperties](modules.md#logeventproperties)
 
 ### Variables
 
@@ -25,7 +24,7 @@
 
 ### Functions
 
-- [createLogFor](modules.md#createlogfor)
+- [createLoggerFor](modules.md#createloggerfor)
 - [customizeDefaultLogConfig](modules.md#customizedefaultlogconfig)
 
 ## Type aliases
@@ -34,19 +33,11 @@
 
 Ƭ **LogEventFormatSections**: keyof `Omit`<[`LogEvent`](interfaces/LogEvent.md), ``"extras"``\>
 
-#### Defined in
-
-console-logger.ts:36
-
-___
-
-### LogEventProperties
-
-Ƭ **LogEventProperties**: keyof [`LogEvent`](interfaces/LogEvent.md)
+The sections of the log event controlled by the formatter
 
 #### Defined in
 
-console-logger.ts:35
+[console-logger.ts:44](https://github.com/tobes31415/console-logger/blob/0d15a23/src/console-logger.ts#L44)
 
 ## Variables
 
@@ -56,13 +47,13 @@ console-logger.ts:35
 
 #### Defined in
 
-console-logger.ts:80
+[console-logger.ts:97](https://github.com/tobes31415/console-logger/blob/0d15a23/src/console-logger.ts#L97)
 
 ## Functions
 
-### createLogFor
+### createLoggerFor
 
-▸ **createLogFor**(`namespace`, `config?`): [`Logger`](interfaces/Logger.md)
+▸ **createLoggerFor**(`namespace`, `config?`): [`Logger`](interfaces/Logger.md)
 
 #### Parameters
 
@@ -77,7 +68,7 @@ console-logger.ts:80
 
 #### Defined in
 
-console-logger.ts:86
+[console-logger.ts:103](https://github.com/tobes31415/console-logger/blob/0d15a23/src/console-logger.ts#L103)
 
 ___
 
@@ -97,4 +88,4 @@ ___
 
 #### Defined in
 
-console-logger.ts:82
+[console-logger.ts:99](https://github.com/tobes31415/console-logger/blob/0d15a23/src/console-logger.ts#L99)
