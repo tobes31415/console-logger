@@ -1,6 +1,6 @@
 {
   "name": "@tobes31415/console-logger",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Formats console logs while preserving stack trace info",
   "main": "lib/log-commonjs.min.js",
   "module": "lib/index.js",
@@ -21,7 +21,7 @@
     "build:remove-tests": "del-cli lib/*test*",
     "prettier": "prettier --write \"src/**/*.ts\"",
     "bundle-cjs": "esbuild src/index.ts --external:rxjs --minify --format=cjs --bundle --outfile=lib/log-commonjs.min.js",
-    "bundle-esm": "esbuild src/*.ts --format=esm --outdir=lib",
+    "bundle-esm": "esbuild src/index.ts src/util.ts src/console-logger.ts --format=esm --outdir=lib",
     "flowgen": "run-p flowgen:*",
     "flowgen:log": "flowgen flow/log.d.ts -o lib/log-commonjs.min.js.flow",
     "flowgen:index": "flowgen flow/index.d.ts -o lib/index.js.flow",
@@ -72,6 +72,6 @@
     "uglify-es": "^3.3.9"
   },
   "dependencies": {
-    "@tobes31415/basic-observables": "^1.0.2"
+    "@tobes31415/basic-observables": "^1.0.3"
   }
 }

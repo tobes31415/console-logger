@@ -37,7 +37,7 @@ The sections of the log event controlled by the formatter
 
 #### Defined in
 
-[console-logger.ts:44](https://github.com/tobes31415/console-logger/blob/0d15a23/src/console-logger.ts#L44)
+[console-logger.ts:44](https://github.com/tobes31415/console-logger/blob/888e098/src/console-logger.ts#L44)
 
 ## Variables
 
@@ -47,7 +47,7 @@ The sections of the log event controlled by the formatter
 
 #### Defined in
 
-[console-logger.ts:97](https://github.com/tobes31415/console-logger/blob/0d15a23/src/console-logger.ts#L97)
+[console-logger.ts:97](https://github.com/tobes31415/console-logger/blob/888e098/src/console-logger.ts#L97)
 
 ## Functions
 
@@ -68,7 +68,7 @@ The sections of the log event controlled by the formatter
 
 #### Defined in
 
-[console-logger.ts:103](https://github.com/tobes31415/console-logger/blob/0d15a23/src/console-logger.ts#L103)
+[console-logger.ts:103](https://github.com/tobes31415/console-logger/blob/888e098/src/console-logger.ts#L103)
 
 ___
 
@@ -88,4 +88,4 @@ ___
 
 #### Defined in
 
-[console-logger.ts:99](https://github.com/tobes31415/console-logger/blob/0d15a23/src/console-logger.ts#L99)
+[console-logger.ts:99](https://github.com/tobes31415/console-logger/blob/888e098/src/console-logger.ts#L99)
