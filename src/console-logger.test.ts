@@ -1,38 +1,40 @@
-import { Subscription } from '@tobes31415/basic-observables';
 import { createLoggerFor, LogEvent, onLogEvent, customizeDefaultLogConfig, LogLevel, LoggerConfig } from './console-logger';
+import expect from "expect.js";
 
 describe("console-logger", () => {
-    test("generates events", () => {
+    it("generates events", () => {
         let result: LogEvent = undefined as any;
-        const subFn = jest.fn(event => { result = event });
+        let count: number = 0;
+        const subFn = event => { count++; result = event };
         const sub = onLogEvent.subscribe(subFn);
 
         const logger = createLoggerFor("banana");
         logger("test");
-        expect(subFn).toHaveBeenCalledTimes(1);
-        expect(result).toBeTruthy();
-        expect(result.time).toBeTruthy();
-        expect(result.uptime).toBeTruthy();
+        expect(count).to.be(1);
+        expect(result).to.be.ok();
+        expect(result.time).to.be.ok();
+        expect(result.uptime).to.be.ok();
 
         delete (result as any).time;
         delete (result as any).uptime;
 
-        expect(result).toEqual({ namespace: "banana", level: "debug", message: "test", extras: [] })
+        expect(result).to.eql({ namespace: "banana", level: "debug", message: "test", extras: [] })
 
         sub.unsubscribe();
     });
     function worksForLogLevel(level: LogLevel) {
-        test("works for " + level, () => {
+        it("works for " + level, () => {
             let result: LogEvent = undefined as any;
-            const subFn = jest.fn(event => { result = event });
+            let count: number = 0;
+            const subFn = event => { count++; result = event };
             const sub = onLogEvent.subscribe(subFn);
 
             const logger = createLoggerFor("banana");
             logger[level]("test");
-            expect(subFn).toHaveBeenCalledTimes(1);
-            expect(result).toBeTruthy();
+            expect(count).to.be(1);
+            expect(result).to.be.ok();
 
-            expect(result.level).toEqual(level)
+            expect(result.level).to.be(level)
 
             sub.unsubscribe();
         });
@@ -41,9 +43,10 @@ describe("console-logger", () => {
     worksForLogLevel(LogLevel.error);
     worksForLogLevel(LogLevel.info);
     worksForLogLevel(LogLevel.warn);
-    test("filters events at the global level", () => {
+    it("filters events at the global level", () => {
         let result: LogEvent = undefined as any;
-        const subFn = jest.fn(event => { result = event });
+        let count: number = 0;
+        const subFn = event => { count++; result = event };
         const sub = onLogEvent.subscribe(subFn);
 
         const logger = createLoggerFor("banana");
@@ -51,22 +54,23 @@ describe("console-logger", () => {
         logger("test1");
         logger.warn("test2");
 
-        expect(subFn).toHaveBeenCalledTimes(1);
-        expect(result).toBeTruthy();
-        expect(result.time).toBeTruthy();
-        expect(result.uptime).toBeTruthy();
+        expect(count).to.be(1);
+        expect(result).to.be.ok();
+        expect(result.time).to.be.ok();
+        expect(result.uptime).to.be.ok();
 
         delete (result as any).time;
         delete (result as any).uptime;
 
-        expect(result).toEqual({ namespace: "banana", level: "warn", message: "test2", extras: [] })
+        expect(result).to.eql({ namespace: "banana", level: "warn", message: "test2", extras: [] })
 
         customizeDefaultLogConfig({ logThreshold: LogLevel.debug });
         sub.unsubscribe();
     });
-    test("filters events at the individual logger level", () => {
+    it("filters events at the individual logger level", () => {
         let result: LogEvent = undefined as any;
-        const subFn = jest.fn(event => { result = event });
+        let count: number = 0;
+        const subFn = event => {count++; result = event };
         const sub = onLogEvent.subscribe(subFn);
 
         const logger = createLoggerFor("banana");
@@ -74,40 +78,41 @@ describe("console-logger", () => {
         logger("test1");
         logger.warn("test2");
 
-        expect(subFn).toHaveBeenCalledTimes(1);
-        expect(result).toBeTruthy();
-        expect(result.time).toBeTruthy();
-        expect(result.uptime).toBeTruthy();
+        expect(count).to.be(1);
+        expect(result).to.be.ok();
+        expect(result.time).to.be.ok();
+        expect(result.uptime).to.be.ok();
 
         delete (result as any).time;
         delete (result as any).uptime;
 
-        expect(result).toEqual({ namespace: "banana", level: "warn", message: "test2", extras: [] })
+        expect(result).to.eql({ namespace: "banana", level: "warn", message: "test2", extras: [] })
 
         sub.unsubscribe();
     });
-    test("filters events at the individual logger level via constructor", () => {
+    it("filters events at the individual logger level via constructor", () => {
         let result: LogEvent = undefined as any;
-        const subFn = jest.fn(event => { result = event });
+        let count: number = 0;
+        const subFn = event => {count++; result = event ;}
         const sub = onLogEvent.subscribe(subFn);
 
         const logger = createLoggerFor("banana", { logThreshold: LogLevel.warn });
         logger("test1");
         logger.warn("test2");
 
-        expect(subFn).toHaveBeenCalledTimes(1);
-        expect(result).toBeTruthy();
-        expect(result.time).toBeTruthy();
-        expect(result.uptime).toBeTruthy();
+        expect(count).to.be(1);
+        expect(result).to.be.ok();
+        expect(result.time).to.be.ok();
+        expect(result.uptime).to.be.ok();
 
         delete (result as any).time;
         delete (result as any).uptime;
 
-        expect(result).toEqual({ namespace: "banana", level: "warn", message: "test2", extras: [] })
+        expect(result).to.eql({ namespace: "banana", level: "warn", message: "test2", extras: [] })
 
         sub.unsubscribe();
     });
-    test("support for literals", () => {
+    it("support for literals", () => {
         const testConfig: Partial<LoggerConfig> = {
             style: {
                 namespace: "namespace-style",
@@ -128,10 +133,10 @@ describe("console-logger", () => {
         };
         const logger = createLoggerFor("banana", testConfig);
         const result = logger("test", 1, 2, 3);
-        expect(result).toBeTruthy();
-        expect(result).toEqual(["%clevel-format#%cThis is a literal#%cmessage-format", "level-style", "", "message-style", 1, 2, 3])
+        expect(result).to.be.ok();
+        expect(result).to.eql(["%clevel-format#%cThis is a literal#%cmessage-format", "level-style", "", "message-style", 1, 2, 3])
     });
-    test("formats logs", () => {
+    it("formats logs", () => {
         const testConfig: Partial<LoggerConfig> = {
             style: {
                 namespace: "namespace-style",
@@ -152,10 +157,10 @@ describe("console-logger", () => {
         };
         const logger = createLoggerFor("banana", testConfig);
         const result = logger("test", 1, 2, 3);
-        expect(result).toBeTruthy();
-        expect(result).toEqual(["%clevel-format#%cmessage-format#%cnamespace-format#%ctime-format#%cuptime-format", "level-style", "message-style", "namespace-style", "time-style", "uptime-style", 1, 2, 3])
+        expect(result).to.be.ok();
+        expect(result).to.eql(["%clevel-format#%cmessage-format#%cnamespace-format#%ctime-format#%cuptime-format", "level-style", "message-style", "namespace-style", "time-style", "uptime-style", 1, 2, 3])
     });
-    test("Style gets reset", () => {
+    it("Style gets reset", () => {
         const testConfig: Partial<LoggerConfig> = {
             style: {
                 namespace: undefined,
@@ -176,10 +181,10 @@ describe("console-logger", () => {
         };
         const logger = createLoggerFor("banana", testConfig);
         const result = logger("test", 1, 2, 3);
-        expect(result).toBeTruthy();
-        expect(result).toEqual(["%clevel-format#%cmessage-format#namespace-format#%ctime-format#%cuptime-format", "level-style", "", "time-style", "", 1, 2, 3])
+        expect(result).to.be.ok();
+        expect(result).to.eql(["%clevel-format#%cmessage-format#namespace-format#%ctime-format#%cuptime-format", "level-style", "", "time-style", "", 1, 2, 3])
     });
-    test("Default delimiter is a space", () => {
+    it("Default delimiter is a space", () => {
         const testConfig: Partial<LoggerConfig> = {
             style: {
                 namespace: "",
@@ -194,10 +199,10 @@ describe("console-logger", () => {
         };
         const logger = createLoggerFor("banana", testConfig);
         const result = logger("test");
-        expect(result).toBeTruthy();
-        expect(result).toEqual(["namespace-format uptime-format"])
+        expect(result).to.be.ok();
+        expect(result).to.eql(["namespace-format uptime-format"])
     });
-    test("throws an error for invalid formatter", () => {
+    it("throws an error for invalid formatter", () => {
         const testConfig: any = {
             format: {
                 namespace: true,
@@ -205,9 +210,9 @@ describe("console-logger", () => {
             include: ["namespace"]
         };
         const logger = createLoggerFor("banana", testConfig);
-        expect(() => logger("test", 1, 2, 3)).toThrow();
+        expect(() => logger("test", 1, 2, 3)).to.throwError();
     });
-    test("missing formatter defaults to value", () => {
+    it("missing formatter defaults to value", () => {
         const testConfig: Partial<LoggerConfig> = {
             style: {
                 namespace: undefined
@@ -219,10 +224,10 @@ describe("console-logger", () => {
         };
         const logger = createLoggerFor("banana", testConfig);
         const result = logger("test");
-        expect(result).toBeTruthy();
-        expect(result).toEqual(["banana"])
+        expect(result).to.be.ok();
+        expect(result).to.eql(["banana"])
     });
-    test("missing format section defaults to value", () => {
+    it("missing format section defaults to value", () => {
         const testConfig: Partial<LoggerConfig> = {
             style: {
                 namespace: undefined
@@ -232,7 +237,7 @@ describe("console-logger", () => {
         };
         const logger = createLoggerFor("banana", testConfig);
         const result = logger("test");
-        expect(result).toBeTruthy();
-        expect(result).toEqual(["banana"])
+        expect(result).to.be.ok();
+        expect(result).to.eql(["banana"])
     });
 });

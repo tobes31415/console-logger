@@ -1,61 +1,62 @@
 import { deepAssign, isNullorUndefined } from './util';
+import expect from "expect.js";
 
 describe("deepAssign", () => {
-    test("equivalent for a shallow assign", () => {
+    it("equivalent for a shallow assign", () => {
         const A = { abc: 123, def: "ghi" };
         const da = deepAssign({}, A);
         const oa = Object.assign({}, A);
-        expect(A).toEqual(da);
-        expect(A).toEqual(oa);
-        expect(A).not.toBe(da);
-        expect(A).not.toBe(oa);
+        expect(A).to.eql(da);
+        expect(A).to.eql(oa);
+        expect(A).not.to.be(da);
+        expect(A).not.to.be(oa);
     });
-    test("Updates an existing object", () => {
+    it("Updates an existing object", () => {
         const A = { abc: 123, def: "ghi" };
         const B = { def: "zzz", jkl: 456 };
         deepAssign(B, A);
-        expect(A).not.toEqual(B);
-        expect(B).toEqual({ abc: 123, def: "ghi", jkl: 456 });
+        expect(A).not.to.eql(B);
+        expect(B).to.eql({ abc: 123, def: "ghi", jkl: 456 });
     });
-    test("Ignores undefined source objects", () => {
+    it("Ignores undefined source objects", () => {
         const A = { abc: 123, def: "ghi" };
         deepAssign(A, undefined);
-        expect(A).toEqual({ abc: 123, def: "ghi" });
+        expect(A).to.eql({ abc: 123, def: "ghi" });
     });
-    test("Can apply multiple objects", () => {
+    it("Can apply multiple objects", () => {
         const A = {};
         const B = { abc: 123 };
         const C = { def: "ghi" };
         const D = { jkl: 456 };
         deepAssign(A, B, C, D);
-        expect(A).not.toEqual(B);
-        expect(A).not.toEqual(C);
-        expect(A).not.toEqual(D);
-        expect(B).not.toEqual(C);
-        expect(B).not.toEqual(D);
-        expect(C).not.toEqual(D);
-        expect(A).toEqual({ abc: 123, def: "ghi", jkl: 456 });
+        expect(A).not.to.eql(B);
+        expect(A).not.to.eql(C);
+        expect(A).not.to.eql(D);
+        expect(B).not.to.eql(C);
+        expect(B).not.to.eql(D);
+        expect(C).not.to.eql(D);
+        expect(A).to.eql({ abc: 123, def: "ghi", jkl: 456 });
     });
-    test("Returns the target", () => {
+    it("Returns the target", () => {
         const A = {};
         const B = deepAssign(A, {});
-        expect(A).toBe(B);
+        expect(A).to.eql(B);
     });
-    test("Arrays are copied shallowly", () => {
+    it("Arrays are copied shallowly", () => {
         const A = { abc: [1, 2, 3] };
         const B = { abc: [1, 2] };
         const C = deepAssign({}, A, B);
-        expect(C).toEqual({ abc: [1, 2] });
+        expect(C).to.eql({ abc: [1, 2] });
     })
 });
 describe("isNullOrUndefined", () => {
-    test("true for null or undefined", () => {
-        expect(isNullorUndefined(null)).toBe(true);
-        expect(isNullorUndefined(undefined)).toBe(true);
+    it("true for null or undefined", () => {
+        expect(isNullorUndefined(null)).to.eql(true);
+        expect(isNullorUndefined(undefined)).to.eql(true);
     });
-    test("false for other falsy values", () => {
-        expect(isNullorUndefined(false)).toBe(false);
-        expect(isNullorUndefined("")).toBe(false);
-        expect(isNullorUndefined(0)).toBe(false);
+    it("false for other falsy values", () => {
+        expect(isNullorUndefined(false)).to.eql(false);
+        expect(isNullorUndefined("")).to.eql(false);
+        expect(isNullorUndefined(0)).to.eql(false);
     });
 });

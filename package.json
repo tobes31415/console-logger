@@ -1,21 +1,22 @@
 {
   "name": "@tobes31415/console-logger",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Formats console logs while preserving stack trace info",
-  "main": "lib/log-commonjs.min.js",
-  "module": "lib/index.js",
+  "type": "module",
   "types": "lib/index.d.ts",
   "exports": {
-    "log": {
-      "import": "./lib/log.js"
-    }
+    ".": "./lib/index.js"
   },
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "test": "run-s build:compile test:jest",
-    "test:jest": "jest bin --coverage",
-    "build": "run-s pre-clean:* post-clean:* test build:copy:* apidocs bundle-cjs bundle-esm build:remove-tests post-clean:*",
+    "test": "run-s build:compile build:fix-imports:b test:mocha",
+    "test:mocha": "mocha bin",
+    "build": "run-s pre-clean:* post-clean:* test build:copy:* bundle-cjs bundle-esm build:fix-imports:l build:remove-tests post-clean:*",
     "build:compile": "tsc --declaration",
-    "build:fix-imports": "fix-tsc-esnext-imports lib",
+    "build:fix-imports:b": "fix-tsc-esnext-imports bin",
+    "build:fix-imports:l": "fix-tsc-esnext-imports lib",
     "build:copy:flow": "cpy \"bin/**/!(*.test){*.js,*.d.ts}\" \"flow\"",
     "build:copy:dts": "cpy \"bin/**/*.d.ts\" \"lib\"",
     "build:remove-tests": "del-cli lib/*test*",
@@ -48,30 +49,27 @@
   "author": "Jake Tober",
   "license": "MIT",
   "devDependencies": {
-    "@babel/plugin-proposal-export-default-from": "^7.12.1",
-    "@babel/preset-env": "^7.12.11",
-    "@types/jest": "^27.0.1",
-    "@typescript-eslint/eslint-plugin": "^2.34.0",
-    "@typescript-eslint/parser": "^2.34.0",
-    "babel-jest": "^27.0.5",
-    "cpy-cli": "^3.1.1",
-    "del-cli": "^3.0.1",
-    "esbuild": "^0.8.33",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "@types/expect.js": "^0.3.29",
+    "@types/mocha": "^10.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.5",
+    "@typescript-eslint/parser": "^5.59.5",
+    "cpy-cli": "^4.2.0",
+    "del-cli": "^5.0.0",
+    "esbuild": "^0.17.18",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "expect.js": "^0.3.1",
     "fix-tsc-esnext-imports": "^1.0.5",
-    "flowgen": "^1.13.0",
-    "jest": "^27.0.6",
+    "flowgen": "^1.21.0",
+    "mocha": "^10.2.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^1.19.1",
-    "replace": "^1.2.0",
-    "typedoc": "^0.21.5",
-    "typedoc-plugin-markdown": "^3.4.1",
-    "typescript": "~4.0.2",
-    "uglify-es": "^3.3.9"
+    "prettier": "^2.8.8",
+    "typedoc": "^0.24.7",
+    "typedoc-plugin-markdown": "^3.15.3",
+    "typescript": "~5.0.4"
   },
   "dependencies": {
-    "@tobes31415/basic-observables": "^1.0.3"
+    "@tobes31415/basic-observables": "^2.0.0"
   }
 }
