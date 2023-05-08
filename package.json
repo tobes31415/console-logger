@@ -1,11 +1,11 @@
 {
   "name": "@tobes31415/console-logger",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Formats console logs while preserving stack trace info",
   "type": "module",
-  "types": "lib/index.d.ts",
+  "types": "lib/console-logger.d.ts",
   "exports": {
-    ".": "./lib/index.js"
+    ".": "./lib/console-logger.js"
   },
   "files": [
     "lib"
