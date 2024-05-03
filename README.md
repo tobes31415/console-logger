@@ -2,7 +2,7 @@
 
 A Javascript console log formatter that logs the correct line number. Also supports forking logs to other log reporters so that you can have the benefit of both
 
-[View API Docs](docs/modules.md)
+[View API Docs](docs/globals.md)
 
 # Installation
 

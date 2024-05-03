@@ -16,7 +16,7 @@ The information broadcast to the observable when the logger is invoked
 
 #### Source
 
-[console-logger.ts:34](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L34)
+[console-logger.ts:34](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L34)
 
 ***
 
@@ -26,7 +26,7 @@ The information broadcast to the observable when the logger is invoked
 
 #### Source
 
-[console-logger.ts:38](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L38)
+[console-logger.ts:38](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L38)
 
 ***
 
@@ -36,7 +36,7 @@ The information broadcast to the observable when the logger is invoked
 
 #### Source
 
-[console-logger.ts:33](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L33)
+[console-logger.ts:33](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L33)
 
 ***
 
@@ -46,7 +46,7 @@ The information broadcast to the observable when the logger is invoked
 
 #### Source
 
-[console-logger.ts:35](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L35)
+[console-logger.ts:35](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L35)
 
 ***
 
@@ -56,7 +56,7 @@ The information broadcast to the observable when the logger is invoked
 
 #### Source
 
-[console-logger.ts:36](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L36)
+[console-logger.ts:36](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L36)
 
 ***
 
@@ -66,4 +66,4 @@ The information broadcast to the observable when the logger is invoked
 
 #### Source
 
-[console-logger.ts:37](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L37)
+[console-logger.ts:37](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L37)

@@ -16,7 +16,7 @@ Log level matches the console log levels
 
 #### Source
 
-[console-logger.ts:10](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L10)
+[console-logger.ts:10](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L10)
 
 ***
 
@@ -26,7 +26,7 @@ Log level matches the console log levels
 
 #### Source
 
-[console-logger.ts:11](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L11)
+[console-logger.ts:11](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L11)
 
 ***
 
@@ -36,7 +36,7 @@ Log level matches the console log levels
 
 #### Source
 
-[console-logger.ts:12](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L12)
+[console-logger.ts:12](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L12)
 
 ***
 
@@ -46,4 +46,4 @@ Log level matches the console log levels
 
 #### Source
 
-[console-logger.ts:13](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L13)
+[console-logger.ts:13](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L13)

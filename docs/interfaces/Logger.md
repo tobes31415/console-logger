@@ -25,7 +25,7 @@ console.error(...logger.error("This is an error"));
 
 ## Source
 
-[console-logger.ts:53](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L53)
+[console-logger.ts:53](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L53)
 
 ## Methods
 
@@ -43,7 +43,7 @@ console.error(...logger.error("This is an error"));
 
 #### Source
 
-[console-logger.ts:58](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L58)
+[console-logger.ts:58](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L58)
 
 ***
 
@@ -63,7 +63,7 @@ console.error(...logger.error("This is an error"));
 
 #### Source
 
-[console-logger.ts:54](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L54)
+[console-logger.ts:54](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L54)
 
 ***
 
@@ -83,7 +83,7 @@ console.error(...logger.error("This is an error"));
 
 #### Source
 
-[console-logger.ts:55](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L55)
+[console-logger.ts:55](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L55)
 
 ***
 
@@ -103,7 +103,7 @@ console.error(...logger.error("This is an error"));
 
 #### Source
 
-[console-logger.ts:57](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L57)
+[console-logger.ts:57](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L57)
 
 ***
 
@@ -123,4 +123,4 @@ console.error(...logger.error("This is an error"));
 
 #### Source
 
-[console-logger.ts:56](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L56)
+[console-logger.ts:56](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L56)

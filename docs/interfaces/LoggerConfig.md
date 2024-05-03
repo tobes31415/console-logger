@@ -14,7 +14,7 @@
 
 #### Source
 
-[console-logger.ts:65](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L65)
+[console-logger.ts:65](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L65)
 
 ***
 
@@ -24,7 +24,7 @@
 
 #### Source
 
-[console-logger.ts:70](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L70)
+[console-logger.ts:72](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L72)
 
 ***
 
@@ -34,7 +34,7 @@
 
 #### Source
 
-[console-logger.ts:69](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L69)
+[console-logger.ts:69](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L69)
 
 ***
 
@@ -44,7 +44,7 @@
 
 #### Source
 
-[console-logger.ts:67](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L67)
+[console-logger.ts:67](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L67)
 
 ***
 
@@ -54,7 +54,7 @@
 
 #### Source
 
-[console-logger.ts:66](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L66)
+[console-logger.ts:66](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L66)
 
 ***
 
@@ -64,4 +64,4 @@
 
 #### Source
 
-[console-logger.ts:68](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L68)
+[console-logger.ts:68](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L68)

@@ -18,4 +18,4 @@
 
 ## Source
 
-[console-logger.ts:99](https://github.com/tobes31415/console-logger/blob/1e4b4d3093e19c228b2652efee7620e71b7bea77/src/console-logger.ts#L99)
+[console-logger.ts:101](https://github.com/tobes31415/console-logger/blob/bd473304e43959621f0cdd9955fe885877f26fd3/src/console-logger.ts#L101)
