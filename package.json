@@ -1,16 +1,17 @@
 {
   "name": "@tobes31415/console-logger",
-  "version": "1.0.3",
+  "version": "2.0.2",
   "description": "Formats console logs while preserving stack trace info",
   "type": "module",
   "main": "lib/log-commonjs.min.js",
   "module": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "types": "lib/console-logger.d.ts",
   "exports": {
-    "log": {
-      "import": "./lib/log.js"
-    }
+    ".": "./lib/console-logger.js"
   },
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "run-s clean build:tsc build:fix-imports2",
     "build:tsc": "tsc --declaration",
